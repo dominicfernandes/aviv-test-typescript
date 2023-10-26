@@ -1,5 +1,5 @@
 import { extractVariables } from "@/libs/postgres";
-import { ListingPrice } from "@/types.generated";
+import { Price } from "@/types.generated";
 import PostgresClient from "serverless-postgres";
 
 export type ListingPriceTableRow = {
@@ -9,7 +9,7 @@ export type ListingPriceTableRow = {
   };
 
 
-  function tableRowToListingPrice(row: ListingPriceTableRow): ListingPrice {
+  function tableRowToListingPrice(row: ListingPriceTableRow): Price {
     return {
       price_eur: row.price_eur,
       created_date: row.created_date.toISOString(),
@@ -17,7 +17,7 @@ export type ListingPriceTableRow = {
   }
 
   function listingPriceToTableRow(
-    listingPrice: ListingPrice,
+    listingPrice: Price,
     listingId: number,
     createdDate: Date,
   ): ListingPriceTableRow {
@@ -30,13 +30,13 @@ export type ListingPriceTableRow = {
 
   export function getRepository(postgres: PostgresClient) {
     return {
-      async getListingPrices(listingId: number): Promise<ListingPrice[]> {
+      async getListingPrices(listingId: number): Promise<Price[]> {
         const queryString = `SELECT * FROM listing_prices WHERE listing_id = $1`;
         const queryValues = [listingId];
         const result = await postgres.query(queryString, queryValues);
         return result.rows.map(tableRowToListingPrice);
       },
-      async insertListingPrice(listingPrice: ListingPrice, listingId:number) {
+      async insertListingPrice(listingPrice: Price, listingId:number) {
         const tableRow = listingPriceToTableRow(listingPrice,listingId, new Date());
   
         const {

@@ -14,6 +14,9 @@ Write here notes about your implementation choices and assumptions.
 4. Write migrations in db folder with seed data. (10mins).
 5. Read through openAPI yamlfile. Create new Generated type ListingPrice to reuse available types and build.
 6. Followed the current style of existing repository to maintain code consistency. Wrote listing price types, object mappers, function to get prices by listing id and to insert a new price record (15mins).
+7. Update the handler method to remove the mocked data and call the repository method to get data from the db by listing id from url parameters.(10mins).
+8. Update listing api POST and PUT methods to insert new record into listing_prices table(5mins)
+9. Realized that ListingPrice Type is not required since the type Price already exists. Removed ListingPrice Type.
 
 ## Questions
 

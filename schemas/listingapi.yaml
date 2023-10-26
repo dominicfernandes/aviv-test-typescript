@@ -111,10 +111,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/ListingRead'
         - $ref: '#/components/schemas/ListingWrite'
-    ListingPrice:
-      allOf:
-        - $ref: '#/components/schemas/PriceRead'
-        - $ref: '#/components/schemas/PriceWrite'
     ListingRead:
       type: object
       name: Listing (read only)
