@@ -7,6 +7,13 @@ be achieved with your implementation.
 
 Write here notes about your implementation choices and assumptions.
 
+1. Read through the MD files to understand the requirement and the problem statement. (10mins)
+2. Go through the code and understand the structure. Open every file and run through them to see what is available and what I need to implement. (30mins)
+3. Thought: should I create a new table for prices or should i convert the existing price column to JSON object.
+    Decided to create a new table since the size of the array can run into thousands and might add possible computational overhead like memory or performance. Also if the data is in a separate table, it would be easier to run future price analysis on the data.
+4. Write migrations in db folder with seed data. (10mins).
+
+
 ## Questions
 
 This section contains additional questions your expected to answer before the debrief interview.
