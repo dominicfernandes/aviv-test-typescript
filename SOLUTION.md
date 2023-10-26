@@ -13,6 +13,7 @@ Write here notes about your implementation choices and assumptions.
     Decided to create a new table since the size of the array can run into thousands and might add possible computational overhead like memory or performance. Also if the data is in a separate table, it would be easier to run future price analysis on the data.
 4. Write migrations in db folder with seed data. (10mins).
 5. Read through openAPI yamlfile. Create new Generated type ListingPrice to reuse available types and build.
+6. Followed the current style of existing repository to maintain code consistency. Wrote listing price types, object mappers, function to get prices by listing id and to insert a new price record (15mins).
 
 ## Questions
 
