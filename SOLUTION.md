@@ -26,12 +26,36 @@ This section contains additional questions your expected to answer before the de
 
 - **What is missing with your implementation to go to production?**
 
+  - input validations
+  - pagination
+  - authentication and CORS setup
+  - possible use of caching mechanism
+  - test coverage
+  - linting for code consistency and maintain coding standards.
+  - Github actions (optional but good to have)
+
 - **How would you deploy your implementation?**
+
+  - Since the project is using serverless framework, it can be deployed using the CLI which deploys it using to AWS API Gateway and Lambda.
+  - I would also setup gihub actions to save time on accidental broken builds and catch error and bugs through unit tests
+  - setup CI/CD for every merge into main branch
 
 - **If you had to implement the same application from scratch, what would you do differently?**
 
+  - If it was already decided that the application must be serverless with lambda, I would use cdk for Infrastructure as a Code.
+  - implement input validation with joi library.
+  - if we are expecting huge amounts of requests for not frequently updating data, then setup redis caching.
+  - setup pagination for the listing and pricing data
+  - setup authentication with lambda authorizers (custom / cognito)
+  - possible rate limiting to avoid attacks
+
 - **The application aims at storing hundreds of thousands listings and millions of prices, and be accessed by millions
   of users every month. What should be anticipated and done to handle it?**
+
+  - since the api is running mainly on Lamda functions. The limitations of Lambda needs to be kept in mind. For example setting up concurrency limits for the functions and provisioned concurrency to avoid cold start.
+  - avoid long running functions since lambda is billed by the execution time and resources used network costs.
+  - add pagination to the data to avoid sending huge amounts of data in one response.
+  - Use of caching to avoid database calls whenever possible.
 
   NB: You must update the [given architecture schema](./schemas/Aviv_Technical_Test_Architecture.drawio) by importing it
   on [diagrams.net](https://app.diagrams.net/) 
