@@ -17,6 +17,8 @@ Write here notes about your implementation choices and assumptions.
 7. Update the handler method to remove the mocked data and call the repository method to get data from the db by listing id from url parameters.(10mins).
 8. Update listing api POST and PUT methods to insert new record into listing_prices table(5mins)
 9. Realized that ListingPrice Type is not required since the type Price already exists. Removed ListingPrice Type.
+10. Test the funtionality using Postman to check if everything works as expected. (10mins)
+11. Write Unit Test. Struggled a little since I never worked with serverless framework and vitest before (45mins).
 
 ## Questions
 
